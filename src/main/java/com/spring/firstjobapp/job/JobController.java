@@ -10,8 +10,9 @@ import java.util.List;
 public class JobController {
     private List<Job> jobs = new ArrayList<>();
 
-    @GetMapping("/jobs")
+    @GetMapping("/jobs") // http://localhost:8080/jobs
     public List<Job> findAll() {
         return jobs;
     }
+
 }
