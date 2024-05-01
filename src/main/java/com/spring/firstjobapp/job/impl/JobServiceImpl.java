@@ -5,8 +5,6 @@ import com.spring.firstjobapp.job.JobRepository;
 import com.spring.firstjobapp.job.JobService;
 import org.springframework.stereotype.Service;
 
-import java.util.ArrayList;
-import java.util.Iterator;
 import java.util.List;
 import java.util.Optional;
 
@@ -28,8 +26,8 @@ public class JobServiceImpl implements JobService {
     public void createJob(Job job) {
         job.setId(nextId++);
         jobRepository.save(job);
-
     }
+
     @Override
     public Job getJobById(Long id) {
         return jobRepository.findById(id).orElse(null);

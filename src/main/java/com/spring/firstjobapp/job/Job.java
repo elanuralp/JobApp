@@ -1,18 +1,22 @@
 package com.spring.firstjobapp.job;
 
+import com.spring.firstjobapp.company.Company;
 import jakarta.persistence.*;
 
 @Entity
-//@Table(name = "job_table")
+//@Table(name = "job_table") // This is optional, if you want to specify the table name
 public class Job {
-    @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Id // This is the primary key
+    @GeneratedValue(strategy = GenerationType.IDENTITY) // This will auto increment the id
     private Long id;
     private String title;
     private String description;
     private String minSalary;
     private String maxSalary;
     private String location;
+
+    @ManyToOne
+    private Company company;
 
     public Job(Long id, String title, String description, String minSalary, String maxSalary, String location) {
         this.id = id;
@@ -27,6 +31,13 @@ public class Job {
 
     }
 
+    public Company getCompany() {
+        return company;
+    }
+
+    public void setCompany(Company company) {
+        this.company = company;
+    }
 
     public Long getId() {
         return id;
